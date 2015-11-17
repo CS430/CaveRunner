@@ -19,14 +19,14 @@ void IntroState::update() {
 	
 	if (tick < target / 2){
 		alpha += 1.0f / (target / 2);
-		glClearColor(alpha, 0.0, 0.0, 0.0f);
+		glClearColor(alpha, 0.0f, 0.0f, 0.0f);
 
 		tick++;
 	} else if (tick >= target){
-		stateManager->loadState(StateManager::MAINMENU);
+		stateManager -> loadState(StateManager::MAINMENU);
 	} else if (tick >= target / 2){
 		alpha -= 1.0f / (target / 2);
-		glClearColor(alpha, 0.0, 0.0, 0.0f);
+		glClearColor(alpha, 0.0f, 0.0f, 0.0f);
 
 		tick++;
 	} else{

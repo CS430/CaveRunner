@@ -81,12 +81,14 @@
     <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="IntroState.h" />
     <ClInclude Include="Keys.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseState.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
