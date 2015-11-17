@@ -2,7 +2,9 @@
 
 #include <GLFW\glfw3.h>
 
-MainMenuState::MainMenuState(StateManager* sm) : stateManager(sm) {
+MainMenuState::MainMenuState(StateManager* sm, GLFWwindow* window) : 
+	stateManager(sm),
+	window(window) {
 
 }
 
@@ -23,5 +25,7 @@ void MainMenuState::render() {
 }
 
 void MainMenuState::handleInput() {
-
+	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+		stateManager->loadState(StateManager::PLAY);
+	}
 }

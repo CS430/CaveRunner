@@ -57,7 +57,7 @@ void GameScreen::initSystems() {
 		exit(EXIT_FAILURE);
 	}
 
-	stateManager.init();
+	stateManager.init(window);
 
 	/*----------------------------------------------------*/
 	//INIT VAO
@@ -84,16 +84,7 @@ void GameScreen::draw() {
 
 void GameScreen::handleInput() {
 	glfwPollEvents();
-	/*
-	Check if the butten pressed is within our input class
-	if so handlie in input class
-
-	we should look into glfwSetKeyCallback(window, name_of_callback_function)
-
-	if (keys.contains(glfwGetKey(window, ) {
-
-	}
-	*/
+	stateManager.handleInput();
 }
 
 void GameScreen::end() {

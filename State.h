@@ -1,5 +1,7 @@
 #include "StateManager.h"
 
+#include <GLFW\glfw3.h>
+
 #ifndef STATE_H
 #define STATE_H
 
@@ -13,6 +15,7 @@ public:
 									//in this function to determin if a key we use in a particular state is pressed \.
 protected:
 	StateManager stateManager;
+	GLFWwindow* window;
 };
 
 #endif

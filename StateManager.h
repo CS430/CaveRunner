@@ -1,5 +1,7 @@
 #include <vector>
 
+#include <GLFW\glfw3.h>
+
 #ifndef STATEMANAGER_H
 #define STATEMANAGER_H
 
@@ -16,8 +18,8 @@ public:
 
 	void loadState(int state);
 	void unloadState(int state);
-
-	void init();
+	void init(GLFWwindow* window);
+	void handleInput();
 
 	//called by the gamescreen class in the main game loop;
 	void update();
@@ -32,6 +34,8 @@ private:
 	int previousState;
 
 	std::vector<State*> gameStates;
+
+	GLFWwindow* window;
 };
 
 #endif

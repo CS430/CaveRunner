@@ -2,7 +2,12 @@
 
 #include <GLFW\glfw3.h>
 
-IntroState::IntroState(StateManager* sm) : stateManager(sm), tick(0), alpha(0.0f), target(7500) {
+IntroState::IntroState(StateManager* sm, GLFWwindow* window) : 
+	stateManager(sm), 
+	window(window),
+	tick(0), 
+	alpha(0.0f), 
+	target(7500) {
 
 }
 
@@ -39,5 +44,5 @@ void IntroState::render() {
 }
 
 void IntroState::handleInput() {
-	//stateManager->loadState(StateManager::MAINMENU);
+
 }

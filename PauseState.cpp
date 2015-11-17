@@ -1,6 +1,8 @@
 #include "PauseState.h"
 
-PauseState::PauseState(StateManager* sm) : stateManager(sm) {
+PauseState::PauseState(StateManager* sm, GLFWwindow* window) : 
+	stateManager(sm),
+	window(window) {
 
 }
 

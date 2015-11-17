@@ -13,8 +13,9 @@ StateManager::StateManager() {
 StateManager::~StateManager() {
 }
 
-void StateManager::init() {
+void StateManager::init(GLFWwindow* win) {
 	gameStates = { nullptr, nullptr, nullptr, nullptr };
+	window = win;
 
 	loadState(StateManager::INTRO);
 }
@@ -26,19 +27,19 @@ void StateManager::loadState(int state) {
 
 	switch (state) {
 		case INTRO:
-			gameStates[state] = new IntroState(this);
+			gameStates[state] = new IntroState(this, window);
 			break;
 
 		case MAINMENU:
-			gameStates[state] = new MainMenuState(this);
+			gameStates[state] = new MainMenuState(this, window);
 			break;
 
 		case PLAY:
-			gameStates[state] = new PlayState(this);
+			gameStates[state] = new PlayState(this, window);
 			break;
 
 		case PAUSED:
-			gameStates[state] = new PauseState(this);
+			gameStates[state] = new PauseState(this, window);
 			break;
 	}
 
@@ -57,4 +58,8 @@ void StateManager::update() {
 
 void StateManager::render() {
 	
+}
+
+void StateManager::handleInput() {
+	gameStates[currentState]->handleInput();
 }
