@@ -7,9 +7,24 @@
 #include <iostream>
 
 StateManager::StateManager() {
+
 }
 
 StateManager::~StateManager() {
+}
+
+void StateManager::init() {
+	// TODO: Pretty much get rid of all of this. Just need to make sure there are open spots in the vector.
+	IntroState is(this);
+
+	IntroState& isref = is;
+
+	gameStates.push_back(&is);
+	gameStates.push_back(&PlayState(this));
+	gameStates.push_back(&PauseState(this));
+	gameStates.push_back(&MainMenuState(this));
+
+	loadState(StateManager::INTRO);
 }
 
 void StateManager::loadState(int state) {
@@ -17,32 +32,27 @@ void StateManager::loadState(int state) {
 	currentState = state;
 	unloadState(previousState);
 
-
-	gameStates.push_back(&IntroState(this));
-	gameStates.push_back(&PlayState(this));
-	gameStates.push_back(&PauseState(this));
-	gameStates.push_back(&MainMenuState(this));
-
 	switch (state) {
 		case INTRO:
-			gameStates[state] = &IntroState(this);
+			gameStates[state] = new IntroState(this);
 			break;
 
 		case MAINMENU:
-			gameStates[state] = &MainMenuState(this);
+			gameStates[state] = new MainMenuState(this);
 			break;
 
 		case PLAY:
-			gameStates[state] = &PlayState(this);
+			gameStates[state] = new PlayState(this);
 			break;
 
 		case PAUSED:
-			gameStates[state] = &PauseState(this);
+			gameStates[state] = new PauseState(this);
 			break;
 	}
+
 	gameStates[currentState]->init();
 
-	fprintf(stderr, "State Loaded");
+	fprintf(stdout, "State Loaded");
 }
 
 void StateManager::unloadState(int state) {
@@ -50,7 +60,7 @@ void StateManager::unloadState(int state) {
 }
 
 void StateManager::update() {
-
+	gameStates[currentState]->update();
 }
 
 void StateManager::render() {

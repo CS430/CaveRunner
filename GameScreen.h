@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GLFW\glfw3.h>
+#include "StateManager.h"
 
 #ifndef GAMESCREEN_H
 #define GAMESCREEN_H
@@ -50,6 +51,7 @@ private:
 	const char* TITLE = "CaveRunner";
 
 	GLFWwindow* window;
+	StateManager stateManager;
 };
 
 #endif

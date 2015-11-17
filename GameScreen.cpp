@@ -18,9 +18,9 @@ void GameScreen::run() {
 	initSystems();
 
 	while (glfwWindowShouldClose(window) == 0 && glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) {
-		//update();
+		update();
 		render();
-
+		
 		handleInput();
 	}
 
@@ -57,10 +57,7 @@ void GameScreen::initSystems() {
 		exit(EXIT_FAILURE);
 	}
 
-	StateManager stateManager;
-	stateManager.loadState(StateManager::INTRO);
-
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	stateManager.init();
 
 	/*----------------------------------------------------*/
 	//INIT VAO
@@ -71,7 +68,7 @@ void GameScreen::initSystems() {
 }
 
 void GameScreen::update() {
-	//stateManager.update();
+	stateManager.update();
 	//Keys.update()
 }
 

@@ -17,6 +17,8 @@ public:
 	void loadState(int state);
 	void unloadState(int state);
 
+	void init();
+
 	//called by the gamescreen class in the main game loop;
 	void update();
 
