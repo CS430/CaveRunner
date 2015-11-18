@@ -21,9 +21,8 @@ void StateManager::init(GLFWwindow* win) {
 }
 
 void StateManager::loadState(int state) {
-	previousState = currentState;
+	unloadState(currentState);
 	currentState = state;
-	unloadState(previousState);
 
 	switch (state) {
 		case INTRO:
@@ -53,7 +52,7 @@ void StateManager::unloadState(int state) {
 }
 
 void StateManager::update() {
-	gameStates[currentState] -> update();
+	gameStates[currentState]->update();
 }
 
 void StateManager::render() {

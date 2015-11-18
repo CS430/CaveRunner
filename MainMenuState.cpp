@@ -15,7 +15,7 @@ void MainMenuState::init() {
 }
 
 void MainMenuState::update() {
-
+	handleInput();
 }
 
 void MainMenuState::render() {

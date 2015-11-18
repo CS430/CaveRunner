@@ -15,7 +15,7 @@ void PauseState::init() {
 }
 
 void PauseState::update() {
-
+	handleInput();
 }
 
 void PauseState::render() {

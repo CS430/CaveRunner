@@ -35,13 +35,6 @@ public:
 	*/
 	void draw();
 
-	/*
-	because we are going to create a class that helps manage user input we are going to wrapp glfwpoll events in this handleInput function
-	wich will act as our link between our input class and the glfwPollevents
-	we will set keys in GameScreen, but check keys in our states.
-	*/
-	void handleInput();
-
 	void end();
 
 private:

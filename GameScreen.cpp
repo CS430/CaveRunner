@@ -20,8 +20,6 @@ void GameScreen::run() {
 	while (glfwWindowShouldClose(window) == 0) {
 		update();
 		render();
-		
-		handleInput();
 	}
 
 	end();
@@ -80,10 +78,6 @@ void GameScreen::render() {
 
 void GameScreen::draw() {
 
-}
-
-void GameScreen::handleInput() {
-	stateManager.handleInput();
 }
 
 void GameScreen::end() {

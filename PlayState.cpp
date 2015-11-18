@@ -15,7 +15,7 @@ void PlayState::init() {
 }
 
 void PlayState::update() {
-
+	handleInput();
 }
 
 void PlayState::render() {
