@@ -1,7 +1,5 @@
 #include "IntroState.h"
 
-#include <GLFW\glfw3.h>
-
 IntroState::IntroState(StateManager* sm, GLFWwindow* window) : 
 	stateManager(sm), 
 	window(window),
@@ -35,7 +33,7 @@ void IntroState::update() {
 
 		tick++;
 	} else{
-		fprintf(stderr, "Error: update method - IntorState");
+		fprintf(stderr, "Error: update method - IntroState");
 	}
 }
 
@@ -44,5 +42,5 @@ void IntroState::render() {
 }
 
 void IntroState::handleInput() {
-
+	glfwPollEvents();
 }

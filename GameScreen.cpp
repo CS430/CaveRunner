@@ -17,7 +17,7 @@ GameScreen::~GameScreen() {
 void GameScreen::run() {
 	initSystems();
 
-	while (glfwWindowShouldClose(window) == 0 && glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) {
+	while (glfwWindowShouldClose(window) == 0) {
 		update();
 		render();
 		
@@ -83,7 +83,6 @@ void GameScreen::draw() {
 }
 
 void GameScreen::handleInput() {
-	glfwPollEvents();
 	stateManager.handleInput();
 }
 

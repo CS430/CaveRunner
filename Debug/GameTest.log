@@ -1,16 +1,11 @@
-﻿Build started 11/17/2015 11:19:35.
+﻿Build started 11/17/2015 20:27:25.
      1>Project "C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\GameTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opengl-wrappers\glew\glew-1.13.0\include" /I"C:\opengl-wrappers\glfw\glfw-3.1.2.bin.WIN32\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Driver.cpp GameScreen.cpp IntroState.cpp MainMenuState.cpp PauseState.cpp PlayState.cpp StateManager.cpp
-         StateManager.cpp
-         GameScreen.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opengl-wrappers\glew\glew-1.13.0\include" /I"C:\opengl-wrappers\glfw\glfw-3.1.2.bin.WIN32\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PlayState.cpp StateManager.cpp
+         PlayState.cpp
          Generating Code...
          Skipping... (no relevant changes detected)
-         PlayState.cpp
-         PauseState.cpp
-         MainMenuState.cpp
-         IntroState.cpp
-         Driver.cpp
+         StateManager.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\Debug\GameTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\opengl-wrappers\glew\glew-1.13.0\lib\Release\Win32" /LIBPATH:"C:\opengl-wrappers\glfw\glfw-3.1.2.bin.WIN32\lib-vc2013" opengl32.lib glu32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\Debug\GameTest.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\Debug\GameTest.lib" /MACHINE:X86 Debug\Driver.obj
          Debug\GameScreen.obj
@@ -21,9 +16,10 @@
          Debug\PauseState.obj
          Debug\PlayState.obj
          Debug\StateManager.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          GameTest.vcxproj -> C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\Debug\GameTest.exe
      1>Done Building Project "C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\GameTest.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.52
+Time Elapsed 00:00:00.98
