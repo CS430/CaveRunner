@@ -1,4 +1,5 @@
 #include "State.h"
+#include "Player.h"
 
 #include <GLFW\glfw3.h>
 
@@ -17,6 +18,7 @@ public:
 private:
 	StateManager* stateManager;
 	GLFWwindow* window;
+	Player* player;
 
 	float red;
 };
