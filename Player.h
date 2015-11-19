@@ -17,6 +17,7 @@ public:
 	void setYAccel(float y);
 private:
 	const float zPos = 0.0f;
+	const float gravity = 0.0000025f;
 	float xPos;
 	float yPos;
 	float xAccel;

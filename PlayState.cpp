@@ -46,7 +46,7 @@ void PlayState::handleInput() {
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 		if (player->getYPos() <= 0.0f) {
-			player->setYAccel(0.005f);
+			player->setYAccel(0.002f);
 		}
 	}
 

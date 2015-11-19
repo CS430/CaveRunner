@@ -31,7 +31,7 @@ void Player::setYAccel(float y) {
 }
 
 void Player::update() {
-	yAccel -= 0.00001f;
+	yAccel -= gravity;
 	yPos += yAccel;
 
 	if (yPos <= 0.0f) {
@@ -39,11 +39,18 @@ void Player::update() {
 		yAccel = 0.0f;
 	}
 
-	GLfloat v0[] = { -1.0f + xPos, -1.0f + yPos, 0.0f };
-	GLfloat v1[] = { 1.0f + xPos, -1.0f + yPos, 0.0f };
-	GLfloat v2[] = { 0.0f + xPos, 1.0f + yPos, 0.0f };
+	GLfloat v0[] = { -0.075f + xPos, -1.0f + yPos, 0.0f };
+	GLfloat v1[] = { -0.075f + xPos, -0.9f + yPos, 0.0f };
+	GLfloat v2[] = { 0.0f + xPos, -1.0f + yPos, 0.0f };
+	GLfloat v3[] = { -0.075f + xPos, -0.9f + yPos, 0.0f };
+	GLfloat v4[] = { 0.0f + xPos, -0.9f + yPos, 0.0f };
+	GLfloat v5[] = { 0.0f + xPos, -1.0f + yPos, 0.0f };
 
 	glVertex3fv(v0);
 	glVertex3fv(v1);
 	glVertex3fv(v2);
+
+	glVertex3fv(v3);
+	glVertex3fv(v4);
+	glVertex3fv(v5);
 }
