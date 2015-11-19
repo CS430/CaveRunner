@@ -18,13 +18,7 @@ void MainMenuState::update() {
 	handleInput();
 }
 
-void MainMenuState::render() {
-
-}
-
 void MainMenuState::handleInput() {
-	glfwWaitEvents();
-
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		stateManager->loadState(StateManager::PLAY);
 	}

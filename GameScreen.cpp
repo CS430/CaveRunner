@@ -26,10 +26,15 @@ void GameScreen::run() {
 }
 
 void GameScreen::initSystems() {
+	glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL 
+
 	/*----------------------------------------------------*/
 	//INIT GLFW
 	/*----------------------------------------------------*/
-
 	if (!glfwInit()) {
 		fprintf(stderr, "ERROR: could not initilize GLFW. \n");
 		exit(EXIT_FAILURE);
@@ -44,6 +49,7 @@ void GameScreen::initSystems() {
 	}
 
 	glfwMakeContextCurrent(window);
+	glewExperimental = true; // Needed in core profile
 
 	/*----------------------------------------------------*/
 	//INIT GLEW
@@ -55,25 +61,25 @@ void GameScreen::initSystems() {
 		exit(EXIT_FAILURE);
 	}
 
-	stateManager.init(window);
-
 	/*----------------------------------------------------*/
 	//INIT VAO
 	/*----------------------------------------------------*/
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
+
+	stateManager.init(window);
 }
 
 void GameScreen::update() {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	stateManager.update();
 	//Keys.update()
 }
 
 void GameScreen::render() {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//stateManager.render();
 	glfwSwapBuffers(window);
+	glfwPollEvents();
 }
 
 void GameScreen::draw() {

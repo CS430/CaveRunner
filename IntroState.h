@@ -12,7 +12,6 @@ public:
 
 	void init();
 	void update();
-	void render();
 	void handleInput();
 
 private:

@@ -25,7 +25,7 @@
     <Filter Include="Source Files\Entity">
       <UniqueIdentifier>{5bf6bd04-1730-4df1-8197-beda7d390c4f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\States">
+    <Filter Include="Source Files\State">
       <UniqueIdentifier>{be2bd13f-b3ee-43aa-af57-7ee022220e95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -46,16 +46,19 @@
       <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="IntroState.cpp">
-      <Filter>Source Files\States</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="PauseState.cpp">
-      <Filter>Source Files\States</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuState.cpp">
-      <Filter>Source Files\States</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="PlayState.cpp">
-      <Filter>Source Files\States</Filter>
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -12,12 +12,13 @@ public:
 
 	void init();
 	void update();
-	void render();
 	void handleInput();
 
 private:
 	StateManager* stateManager;
 	GLFWwindow* window;
+
+	float red;
 };
 
 #endif

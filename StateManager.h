@@ -24,9 +24,6 @@ public:
 	//called by the gamescreen class in the main game loop;
 	void update();
 
-	//called by the gamescreen class in the main game loop;
-	void render();
-
 private:
 	const static int NUM_OF_STATES = 4;
 

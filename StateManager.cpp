@@ -55,10 +55,6 @@ void StateManager::update() {
 	gameStates[currentState]->update();
 }
 
-void StateManager::render() {
-	
-}
-
 void StateManager::handleInput() {
 	gameStates[currentState]->handleInput();
 }

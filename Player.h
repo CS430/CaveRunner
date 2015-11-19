@@ -5,7 +5,15 @@
 
 class Player : public Entity {
 public:
+	Player();
+	~Player();
+
+	void init();
+	void update();
 private:
+	const float zPos = 0.0f;
+	float xPos;
+	float yPos;
 };
 
 #endif

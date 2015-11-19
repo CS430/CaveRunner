@@ -18,13 +18,7 @@ void PauseState::update() {
 	handleInput();
 }
 
-void PauseState::render() {
-
-}
-
 void PauseState::handleInput() {
-	glfwWaitEvents();
-
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		stateManager->loadState(StateManager::MAINMENU);
 	}

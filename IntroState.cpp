@@ -37,10 +37,5 @@ void IntroState::update() {
 	}
 }
 
-void IntroState::render() {
-
-}
-
 void IntroState::handleInput() {
-	glfwPollEvents();
 }
