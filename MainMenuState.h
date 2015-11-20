@@ -7,7 +7,7 @@
 
 class MainMenuState : public State {
 public:
-	MainMenuState(StateManager* sm, GLFWwindow* window);
+	MainMenuState(StateManager* sm, GLFWwindow* window, Keys* keys);
 	~MainMenuState();
 
 	void init();
@@ -18,6 +18,7 @@ public:
 private:
 	StateManager* stateManager;
 	GLFWwindow* window;
+	Keys* keys;
 };
 
 #endif

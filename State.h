@@ -15,6 +15,7 @@ public:
 protected:
 	StateManager stateManager;
 	GLFWwindow* window;
+	Keys* keys;
 };
 
 #endif

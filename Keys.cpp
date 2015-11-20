@@ -5,37 +5,38 @@ See header file for explination of this class
 #include "Keys.h"
 #include <GLFW\glfw3.h>
 
-std::vector<bool> Keys::keyState = { false, false, false, false, false, false, false };
-std::vector<bool> Keys::previousKeyState = { false, false, false, false, false, false, false };
+std::vector<bool> Keys::isButtonPressed = { false, false, false, false, false, false, false };
+std::vector<bool> Keys::wasButtonPressed = { false, false, false, false, false, false, false };
 
-void Keys::keyPressed(int i, bool b){
-	if (i == GLFW_KEY_ENTER) {
-		keyState[Keys::ENTER] = b;
-	} else if (i == GLFW_KEY_ESCAPE) {
-		keyState[Keys::ESC] = b;
-	} else if (i == GLFW_KEY_SPACE) {
-		keyState[Keys::SPACE] = b;
-	} else if (i == GLFW_KEY_W) {
-		keyState[Keys::W] = b; 
-	} else if (i == GLFW_KEY_A) {
-		keyState[Keys::A] = b;
-	} else if (i == GLFW_KEY_S) {
-		keyState[Keys::S] = b;
-	} else if (i == GLFW_KEY_D) {
-		keyState[Keys::D] = b;
+void Keys::keyPressed(int i){
+	if (i == Keys::ENTER) {
+		isButtonPressed[Keys::ENTER] = true;
+	} else if (i == Keys::ESC) {
+		isButtonPressed[Keys::ESC] = true;
+	} else if (i == Keys::SPACE) {
+		isButtonPressed[Keys::SPACE] = true;
+	} else if (i == Keys::W) {
+		isButtonPressed[Keys::W] = true;
+	} else if (i == Keys::A) {
+		isButtonPressed[Keys::A] = true;
+	} else if (i == Keys::S) {
+		isButtonPressed[Keys::S] = true;
+	} else if (i == Keys::D) {
+		isButtonPressed[Keys::D] = true;
 	}
 }
 
 void Keys::update(){
 	for (int i = 0; i < Keys::NUMBER_OF_KEYS; i++){
-		previousKeyState[i] = keyState[i];
+		wasButtonPressed[i] = isButtonPressed[i];
+		isButtonPressed[i] = false;
 	}
 }
 
-bool Keys::isPressed(int x){
-	return keyState[x] && !previousKeyState[x];
-}
+bool Keys::uniquePress(int x){
+	bool unique = isButtonPressed[x] && !wasButtonPressed[x];
 
-bool Keys::isDown(int x){
-	return keyState[x];
+	wasButtonPressed[x] = isButtonPressed[x];
+
+	return unique;
 }

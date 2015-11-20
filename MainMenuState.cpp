@@ -1,8 +1,9 @@
 #include "MainMenuState.h"
 
-MainMenuState::MainMenuState(StateManager* sm, GLFWwindow* window) : 
+MainMenuState::MainMenuState(StateManager* sm, GLFWwindow* window, Keys* keys) : 
 	stateManager(sm),
-	window(window) {
+	window(window),
+	keys(keys) {
 
 }
 
@@ -20,11 +21,19 @@ void MainMenuState::update() {
 
 void MainMenuState::handleInput() {
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+		keys->keyPressed(Keys::ENTER);
+
 		stateManager->loadState(StateManager::PLAY);
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-		glfwDestroyWindow(window);
-		glfwTerminate();
+		keys->keyPressed(Keys::ESC);
+
+		if (keys->uniquePress(Keys::ESC)) {
+			glfwDestroyWindow(window);
+			glfwTerminate();
+		}
 	}
+
+	keys->update();
 }

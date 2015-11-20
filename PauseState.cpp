@@ -1,8 +1,9 @@
 #include "PauseState.h"
 
-PauseState::PauseState(StateManager* sm, GLFWwindow* window) : 
+PauseState::PauseState(StateManager* sm, GLFWwindow* window, Keys* keys) : 
 	stateManager(sm),
-	window(window) {
+	window(window),
+	keys(keys) {
 
 }
 
@@ -20,10 +21,18 @@ void PauseState::update() {
 
 void PauseState::handleInput() {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-		stateManager->loadState(StateManager::MAINMENU);
+		keys->keyPressed(Keys::ESC);
+
+		if (keys->uniquePress(Keys::ESC)) {
+			stateManager->loadState(StateManager::MAINMENU);
+		}
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+		keys->keyPressed(Keys::ENTER);
+
 		stateManager->loadState(StateManager::PLAY);
 	}
+
+	keys->update();
 }

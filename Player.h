@@ -8,20 +8,29 @@ public:
 	Player(float xPos, float yPos);
 	~Player();
 
+	const float gravity        = 0.000002f;
+	const float friction       = 0.0000005f;
+	const float playerAcccel   = 0.000001f;
+	const float maxPlayerSpeed = 0.00075f;
+	const float jumpAccel      = 0.0015f;
+
 	void init();
 	void update();
 	float getXPos();
 	float getYPos();
+	float getXAccel();
 	void setXPos(float x);
+	void setXAccel(float x);
 	void setYPos(float y);
 	void setYAccel(float y);
+	void setHasDoubleJumped(bool j);
+	bool getHasDoubleJumped();
 private:
-	const float zPos = 0.0f;
-	const float gravity = 0.0000025f;
 	float xPos;
 	float yPos;
 	float xAccel;
 	float yAccel;
+	bool hasDoubleJumped;
 };
 
 #endif

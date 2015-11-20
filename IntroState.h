@@ -7,7 +7,7 @@
 
 class IntroState : public State {
 public:
-	IntroState(StateManager* sm, GLFWwindow* window);
+	IntroState(StateManager* sm, GLFWwindow* window, Keys* keys);
 	~IntroState();
 
 	void init();
@@ -22,6 +22,7 @@ private:
 protected:
 	StateManager* stateManager;
 	GLFWwindow* window;
+	Keys* keys;
 };
 
 #endif

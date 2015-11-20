@@ -6,39 +6,28 @@
 	to handle input differently i.e. in the Main menu w and s may navigate through 
 	menu options, but in the play state w and s will controll the player.
 
-
 	ex in play state
-	handleInput()
-	{
-		if Keys.ispressed("s")
-		{
+	handleInput() {
+		if Keys.ispressed("s") {
 			player.setXPos(player.getXpos() + 5);
 		}
 	}
 
 	or something similiar to this.
-
 */
-
-#pragma once
 
 #ifndef KEYS_H
 #define KEYS_H
 
 #include <vector>
 
-class Keys
-{
-
-	static std::vector<bool> keyState;
-	static std::vector<bool> previousKeyState;
+class Keys {
+	static std::vector<bool> isButtonPressed;
+	static std::vector<bool> wasButtonPressed;
 public:
-
-
-	static void keyPressed(int i, bool b);
+	static void keyPressed(int i);
 	static void update();
-	static bool isPressed(int x);
-	static bool isDown(int x);
+	static bool uniquePress(int x);
 
 	static const int NUMBER_OF_KEYS = 7;
 
@@ -49,12 +38,6 @@ public:
 	static const int A = 4;
 	static const int S = 5;
 	static const int D = 6;
-
-
-
 };
-
-
-
 
 #endif

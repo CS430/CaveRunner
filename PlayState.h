@@ -8,7 +8,7 @@
 
 class PlayState : public State {
 public:
-	PlayState(StateManager* sm, GLFWwindow* window);
+	PlayState(StateManager* sm, GLFWwindow* window, Keys* keys);
 	~PlayState();
 
 	void init();
@@ -19,6 +19,7 @@ private:
 	StateManager* stateManager;
 	GLFWwindow* window;
 	Player* player;
+	Keys* keys;
 
 	float red;
 };

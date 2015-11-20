@@ -7,7 +7,7 @@
 
 class PauseState : public State {
 public:
-	PauseState(StateManager* sm, GLFWwindow* window);
+	PauseState(StateManager* sm, GLFWwindow* window, Keys* keys);
 	~PauseState();
 
 	void init();
@@ -17,6 +17,7 @@ public:
 private:
 	StateManager* stateManager;
 	GLFWwindow* window;
+	Keys* keys;
 };
 
 #endif

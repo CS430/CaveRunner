@@ -5,6 +5,7 @@
 
 #include "GameScreen.h"
 #include "StateManager.h"
+#include "Keys.h"
 
 GameScreen::GameScreen() {
 
@@ -68,13 +69,12 @@ void GameScreen::initSystems() {
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
-	stateManager.init(window);
+	stateManager.init(window, new Keys());
 }
 
 void GameScreen::update() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	stateManager.update();
-	//Keys.update()
 }
 
 void GameScreen::render() {
