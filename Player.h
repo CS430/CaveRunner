@@ -8,7 +8,7 @@ public:
 	Player(float xPos, float yPos);
 	~Player();
 
-	const float gravity        = 0.000002f;
+	const float gravity        = 0.000003f;
 	const float friction       = 0.0000005f;
 	const float playerAcccel   = 0.000001f;
 	const float maxPlayerSpeed = 0.00075f;

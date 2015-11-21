@@ -61,8 +61,7 @@ void PlayState::handleInput() {
 
 		if (player->getYPos() <= 0.0f) {
 			player->setYAccel(player->jumpAccel);
-		}
-		else if (keys->uniquePress(Keys::W)) {
+		} else if (keys->uniquePress(Keys::W)) {
 			if (!player->getHasDoubleJumped()) {
 				player->setYAccel(player->jumpAccel);
 				player->setHasDoubleJumped(true);
