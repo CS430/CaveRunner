@@ -17,6 +17,8 @@ public:
 	void use();
 	void unuse();
 
+	GLuint getProgramId();
+
 private:
 	int numAttribute;
 
@@ -25,7 +27,6 @@ private:
 
 	GLuint vertexShaderID;
 	GLuint fragShaderID;
-
 };
 
 #endif

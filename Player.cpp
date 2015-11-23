@@ -10,16 +10,9 @@
 
 using namespace glm;
 
-const GLfloat vertices[6][2] = {
-	{ -0.075f, -1.0f },
-	{ -0.075f, -0.9f },
-	{  0.0f,   -1.0f },
-	{ -0.075f, -0.9f },
-	{  0.0f,   -0.9f },
-	{  0.0f,   -1.0f }
-};;
+std::vector<std::vector<GLfloat>> vertices;
 
-Player::Player(float xPos, float yPos) : xPos(xPos), yPos(yPos) {
+Player::Player(float xPos, float yPos, float height, float width) : xPos(xPos), yPos(yPos), height(height), width(width) {
 	hasDoubleJumped = false;
 	xAccel = 0.0f;
 	yAccel = 0.0f;
@@ -41,6 +34,10 @@ float Player::getXAccel() {
 	return xAccel;
 }
 
+float Player::getXPos() {
+	return xPos;
+}
+
 float Player::getYPos() {
 	return yPos;
 }
@@ -57,6 +54,18 @@ bool Player::getHasDoubleJumped() {
 	return hasDoubleJumped;
 }
 
+void Player::setIsCrouching(bool c) {
+	isCrouching = c;
+}
+
+bool Player::getIsCrouching() {
+	return isCrouching;
+}
+
+float Player::getHeight() {
+	return height;
+}
+
 void Player::update() {
 	yAccel -= gravity;
 	yPos += yAccel;
@@ -71,13 +80,37 @@ void Player::update() {
 
 	xPos += xAccel;
 
-	if (yPos <= 0.0f) {
-		yPos = 0.0f;
+	if (yPos - height <= -1.0f) {
+		yPos = -1.0f + height;
 		yAccel = 0.0f;
 		hasDoubleJumped = false;
 	}
 
-	for (int i = 0; i < sizeof(vertices) / 8; i++) {
-		glVertex2f(vertices[i][0] + xPos, vertices[i][1] + yPos);
+	if (isCrouching) {
+		height = height + width;
+		width = height - width;
+		height = height - width;
+	}
+
+	vertices = {
+		{ xPos - width, yPos - height },
+		{ xPos - width, yPos + height },
+		{ xPos + width, yPos - height },
+		{ xPos - width, yPos + height },
+		{ xPos + width, yPos + height },
+		{ xPos + width, yPos - height }
+	};
+
+	for (int i = 0; i < vertices.size(); i++) {
+		glTexCoord2f(0.5f, 0.5f);
+		glVertex2f(vertices[i][0], vertices[i][1]);
+	}
+
+	if (isCrouching) {
+		height = height + width;
+		width = height - width;
+		height = height - width;
+
+		setIsCrouching(false);
 	}
 }

@@ -5,7 +5,7 @@
 
 class Player : public Entity {
 public:
-	Player(float xPos, float yPos);
+	Player(float xPos, float yPos, float height, float width);
 	~Player();
 
 	const float gravity        = 0.000003f;
@@ -19,17 +19,23 @@ public:
 	float getXPos();
 	float getYPos();
 	float getXAccel();
+	float getHeight();
 	void setXPos(float x);
 	void setXAccel(float x);
 	void setYPos(float y);
 	void setYAccel(float y);
 	void setHasDoubleJumped(bool j);
 	bool getHasDoubleJumped();
+	void setIsCrouching(bool c);
+	bool getIsCrouching();
 private:
 	float xPos;
 	float yPos;
 	float xAccel;
 	float yAccel;
+	float height;
+	float width;
+	bool isCrouching;
 	bool hasDoubleJumped;
 };
 

@@ -11,6 +11,10 @@ public:
 	GameScreen();		//constructor
 	~GameScreen();		//destructor
 
+	//we do not want to resize the window
+	static const int WIDTH = 960;
+	static const int HEIGHT = 540;
+
 	void run();			//will hold the main game loop
 	
 	void initSystems();	//called by run, sets up our window and stuff like that
@@ -38,9 +42,6 @@ public:
 	void end();
 
 private:
-	//we do not want to resize the window
-	const int WIDTH = 960;
-	const int HEIGHT = 540;
 	const char* TITLE = "CaveRunner";
 
 	GLFWwindow* window;

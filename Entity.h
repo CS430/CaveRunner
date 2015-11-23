@@ -10,6 +10,8 @@ private:
 	const float zPos = 0.0f;
 	float xPos;
 	float yPos;
+	float height;
+	float width;
 };
 
 #endif

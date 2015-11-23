@@ -1,10 +1,11 @@
-﻿Build started 11/20/2015 23:31:13.
+﻿Build started 11/23/2015 00:23:29.
      1>Project "C:\Users\CKosidowski11\Documents\GitHub\CaveRunner\GameTest.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opengl-wrappers\glew\glew-1.13.0\include" /I"C:\opengl-wrappers\glfw\glfw-3.1.2.bin.WIN32\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Driver.cpp GameScreen.cpp GLSLProgram.cpp IntroState.cpp Keys.cpp MainMenuState.cpp PauseState.cpp Player.cpp PlayState.cpp StateManager.cpp
          StateManager.cpp
          PlayState.cpp
          Player.cpp
+     1>c:\users\ckosidowski11\documents\github\caverunner\player.cpp(104): warning C4018: '<' : signed/unsigned mismatch
          PauseState.cpp
          MainMenuState.cpp
          Keys.cpp
@@ -30,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.18
+Time Elapsed 00:00:04.02

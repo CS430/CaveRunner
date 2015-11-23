@@ -1,7 +1,8 @@
-#include "GLSLProgram.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
+
+#include "GLSLProgram.h"
 
 GLSLProgram::GLSLProgram() : numAttribute(0), programID(0), vertexShaderID(0), fragShaderID(0) {
 
@@ -92,6 +93,10 @@ void GLSLProgram::use() {
 
 void GLSLProgram::unuse() {
 	glUseProgram(0);
+}
+
+GLuint GLSLProgram::getProgramId() {
+	return programID;
 }
 
 void GLSLProgram::compileShader(const std::string& filepath, GLuint id) {

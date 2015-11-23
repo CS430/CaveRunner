@@ -23,7 +23,9 @@ void MainMenuState::handleInput() {
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		keys->keyPressed(Keys::ENTER);
 
-		stateManager->loadState(StateManager::PLAY);
+		if (keys->uniquePress(Keys::ENTER)) {
+			stateManager->loadState(StateManager::PLAY);
+		}
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
